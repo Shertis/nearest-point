@@ -23,7 +23,7 @@ bool FileReader::LoadData()
     {
         std::getline(istr, line);
 
-        Vec3 vec;
+        MathUtils::Vec3 vec;
         if (GetVec3FromStr(line, vec))
             m_loadedData.emplace_back(vec);
         else
@@ -33,7 +33,7 @@ bool FileReader::LoadData()
     return true;
 }
 
-std::vector<Vec3> FileReader::GetPointsData()
+std::vector<MathUtils::Vec3> FileReader::GetPointsData()
 {
     return m_loadedData;
 }

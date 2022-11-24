@@ -3,15 +3,23 @@
 #include <vector>
 #include "Math.h"
 
+
+
 class PolyLine
 {
 public:
-	PolyLine() {}
-	PolyLine(const std::vector<Vec3>& iData) : m_pointData(iData) {}
+	struct PointOnPolyLine
+	{
+		int segment = 0;
+		MathUtils::Vec3 Point;
+	};
 
-	void FindNearPoint(const Vec3& iTargetPoint);
+	PolyLine() {}
+	PolyLine(const std::vector<MathUtils::Vec3>& iData) : m_pointData(iData) {}
+
+	std::vector<PointOnPolyLine> FindNearPoint(const MathUtils::Vec3& iTargetPoint);
 
 private:
-	std::vector<Vec3> m_pointData;
+	std::vector<MathUtils::Vec3> m_pointData;
 };
 

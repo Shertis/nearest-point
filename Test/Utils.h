@@ -4,7 +4,7 @@
 #include <sstream>
 #include "Math.h"
 
-bool GetVec3FromStr(const std::string& iStr, Vec3& oVec)
+inline bool GetVec3FromStr(const std::string& iStr, MathUtils::Vec3& oVec)
 {
     if (iStr.empty())
         return false;

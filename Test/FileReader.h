@@ -9,13 +9,12 @@ public:
 	FileReader(const std::string& iFileName);
 	bool LoadData();
 
-	std::vector<Vec3> GetPointsData();
+	std::vector<MathUtils::Vec3> GetPointsData();
 
 private:
-	void CloseFile();
 
 	std::string m_filePath;
-	std::vector<Vec3> m_loadedData;
+	std::vector<MathUtils::Vec3> m_loadedData;
 
 };
 

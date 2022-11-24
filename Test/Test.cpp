@@ -9,12 +9,12 @@ int main()
     std::string target;
 
     std::cout << "File path:" << std::endl;
-    std::cin >> filePath;
+    std::getline(std::cin, filePath);
 
     std::cout << "Target:" << std::endl;
-    std::cin >> target;
+    std::getline(std::cin, target);
 
-    Vec3 targetVec;
+    MathUtils::Vec3 targetVec;
     if (!GetVec3FromStr(target, targetVec))
         std::cout << "Error: wrong target" << std::endl;
 
@@ -23,7 +23,10 @@ int main()
         std::cout << "Error: wrong points data" << std::endl;
 
     PolyLine pLine(loader.GetPointsData());
-    pLine.FindNearPoint(targetVec);
+    auto result = pLine.FindNearPoint(targetVec);
+
+    for (const auto& resPoint : result)
+        std::cout << "segment " << resPoint.segment << " point " << resPoint.Point.x << " " << resPoint.Point.y << " " << resPoint.Point.z << std::endl;
 
     return 0;
 }
