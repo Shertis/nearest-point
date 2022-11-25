@@ -2,6 +2,10 @@
 
 namespace MathUtils
 {
+/**
+ * Implementation of loading data with points from a file
+ */
+
 	struct Vec3
 	{
 		union

@@ -6,6 +6,7 @@ std::vector<PolyLine::PointOnPolyLine> PolyLine::FindNearPoint(const MathUtils::
 	bool hasPointOnLine = false;
 	float distance = FLT_MAX;
 
+	// iterating on segments
 	for (int i = 0; i < m_pointData.size() - 1; i++)
 	{
 		const auto& point1 = m_pointData[i];
@@ -19,6 +20,8 @@ std::vector<PolyLine::PointOnPolyLine> PolyLine::FindNearPoint(const MathUtils::
 		auto tVec2 = iTargetPoint - point2;
 		float d2 = MathUtils::Vec3Dot(vec2, tVec2);
 
+		//checks the projection of point is on segment
+		//if there are no projections, then we look for the nearest point
 		if (d1 > 0 && d2 > 0)
 		{
 			if (!hasPointOnLine)
